@@ -5,41 +5,35 @@
 ### Table of content :
 
 * <a href="#Introduction">HTML Introduction</a>
-  * <a href="#structure">HTML structure</a>
-  * <a href="#During">Heading</a>
-  * <a href="#During">Paragraph</a>
-  * <a href="#During">Images</a>
-  * <a href="#During">Anchor Tags</a>
-  * <a href="#During">Ordered and Unordered Lists</a>
-* <a href="#During">Styles</a>
-* <a href="#During">Block and Inline Displa Values</a>
-* <a href="#During">Group Styles using Class Attribute</a>
-* <a href="#During">Hyperlinks</a>
-* <a href="#During">ID attribute</a>
-* <a href="#During">HTML5 vs HTML4</a>
-  * <a href="#During">Elements and Attributes in HTML5</a>
-  * <a href="#During">Semantic Elements</a>
-* <a href="#During">HTML Tables</a>
-  * <a href="#During">Span Table rows and Columns</a>
-  * <a href="#During">Layouts in Tables</a>
-* <a href="#During">HTML Forms</a>
-  * <a href="#During">Form Input Types</a>
-  * <a href="#During">Style in Forms</a>
-  * <a href="#During">GET and POST</a>
-  * <a href="#During">Form Input Types</a>
-  * <a href="#During">Form Input Attributes</a>
-  * <a href="#During">Form Validation</a>
-* <a href="#During">Embedding Multimedia</a>
-  * <a href="#During"> Videos in Webpage</a>
-  * <a href="#During"> Audio</a>
-  * <a href="#During"> <embed> elements</a>
-  * <a href="#During"> embed YT videos</a>
-* <a href="#During">Vector Graphics</a>
-  * <a href="#During">SVG</a>
-  * <a href="#During">Circle using SVG</a>
-  * <a href="#During">Rectangle using SVG</a>
-  * <a href="#During"></a>
-* <a href="#During"></a>
+* <a href="#structure">HTML structure</a>
+* <a href="#Paragraph">Paragraph</a>
+* <a href="#Line breaks">Line breaks</a>
+* <a href="#Non-Breaking Space">Non-Breaking Space</a>
+* <a href="#Header Tags">Header Tags</a>
+
+* <a href="#Text Formatting and Decoration">Text Formatting and Decoration</a>
+* <a href="#Inline Text Formatting">Inline Text Formatting</a>
+* <a href="#Unordered Lists">Unordered Lists</a>
+* <a href="#Ordered Lists">Ordered Lists</a>
+* <a href="#Image Insertion">Image Insertion</a>
+* <a href="#Embedding Videos">Embedding Videos</a>
+
+* <a href="#Absolute vs. Relative File Referencing">Absolute vs. Relative File Referencing</a>
+* <a href="#Link Creation">Link Creation</a>
+* <a href="#Anchor Tags">Anchor Tags</a>
+* <a href="#Tables">Tables</a>
+* <a href="#Nested Tables">Nested Tables</a>
+* <a href="#Merging Cells">Merging Cells</a>
+
+* <a href="#Text Wrapping">Text Wrapping</a>
+* <a href="#Table Background Image">Table Background Image</a>
+* <a href="#Table Cell Alignment">Table Cell Alignment</a>
+* <a href="#Forms">Forms</a>
+* <a href="#Form Tags and Attributes">Form Tags and Attributes</a>
+* <a href="#Form Elements">Form Elements</a>
+
+* <a href="#Input Types">Input Types</a>
+* <a href="#Input Restrictions">Input Restrictions</a>
 
 
 
@@ -101,7 +95,7 @@ will be called upon in the <body> of our HTML documents.
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Paragraph"></div>
 
 ### HTML Paragraph Spacing :
 We just to add ``` <p>   </p>``` at the opening and closing of the paragraph.
@@ -113,7 +107,7 @@ We just to add ``` <p>   </p>``` at the opening and closing of the paragraph.
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Line breaks"></div>
 
 ### HTML Line breaks :
 * whenever we use "html paragraph spacing ``` <p> ``` tag", the space is too more between tow lines to avoid this we use``` <br> ```tag between``` <p>``` tag.
@@ -125,7 +119,7 @@ We just to add ``` <p>   </p>``` at the opening and closing of the paragraph.
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Non-Breaking Space"></div>
 
 ### HTML Non-Breaking Space :
 spacing between two characters - A commonly used entity in HTML is the nonbreaking space: ``` &nbsp; ```. <br>
@@ -139,7 +133,7 @@ A non-breaking space is a space that will not break into a new line. <br>
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Header Tags"></div>
 
 ### HTML Header Tags :
 The ```<header>``` element represents a container for introductory content or a set of navigational links. 
@@ -158,7 +152,7 @@ The ```<header>``` element represents a container for introductory content or a 
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Text Formatting and Decoration"></div>
 
 ### HTML Text Formatting and Decoration :
 Formatting elements were designed to display special types of text: <br>
@@ -180,7 +174,7 @@ Formatting elements were designed to display special types of text: <br>
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Inline Text Formatting"></div>
 
 ### HTML Inline Text Formatting :
 Inline elements—that is, elements that are used inside other elements. <br>
@@ -195,7 +189,7 @@ Inline elements—that is, elements that are used inside other elements. <br>
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Unordered Lists"></div>
 
 ### HTML Unordered Lists :
 An unordered list starts with the ```<ul> ```tag. Each list item starts with the``` <li> ```tag. The list items will be marked with bullets (small black circles) by default.
@@ -207,7 +201,7 @@ An unordered list starts with the ```<ul> ```tag. Each list item starts with the
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Ordered Lists"></div>
 
 ### HTML Ordered Lists :
 An ordered list starts with the ```<ol>``` tag. Each list item starts with the ```<li>``` tag. The list items will be marked with numbers by default.
@@ -218,7 +212,7 @@ An ordered list starts with the ```<ol>``` tag. Each list item starts with the `
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Image Insertion"></div>
 
 ### HTML Image Insertion :
 The HTML ```<img>``` tag is used to embed an image in a web page. Images are not technically inserted into a web page; images are linked to web pages. 
@@ -236,7 +230,7 @@ The HTML ```<img>``` tag is used to embed an image in a web page. Images are not
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Embedding Videos"></div>
 
 ### HTML Embedding Videos :
 To show a video in HTML, use the ```<video>  </video>``` element. 
@@ -247,7 +241,7 @@ To show a video in HTML, use the ```<video>  </video>``` element.
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Absolute vs. Relative File Referencing"></div>
 
 ### HTML Absolute vs. Relative File Referencing :
 The main difference between an absolute and relative pathway is that an absolute path specifies the location from the root directory and 
@@ -260,7 +254,7 @@ The main difference between an absolute and relative pathway is that an absolute
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Link Creation"></div>
 
 ### HTML Link Creation :
 To make a hyperlink in an HTML page, use the ```<a>``` and ```</a>``` tags, which are the tags used to define the links. The ```<a>``` tag indicates where <br>
@@ -274,7 +268,7 @@ To make a hyperlink in an HTML page, use the ```<a>``` and ```</a>``` tags, whic
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Anchor Tags"></div>
 
 ### HTML Anchor Tags :
 The HTML anchor tag defines a hyperlink that links one page to another page. It can create hyperlink to other web page as well as files, 
@@ -286,7 +280,7 @@ The HTML anchor tag defines a hyperlink that links one page to another page. It 
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Tables"></div>
 
 ### HTML Tables :
 HTML tables allow web developers to arrange data into rows and columns. Define an HTML Table. <br>
@@ -301,7 +295,7 @@ HTML tables allow web developers to arrange data into rows and columns. Define a
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Nested Tables"></div>
 
 ### HTML Nested Tables :
 The nested table in HTML means creating a table on a webpage inside another table on the same web page.
@@ -313,7 +307,7 @@ The nested table in HTML means creating a table on a webpage inside another tabl
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Merging Cells"></div>
 
 ### HTML Merging Cells :
 To merge cells in HTML, use the colspan and rowspan attribute. The rowspan attribute is for the number of rows a cell should span, <br>
@@ -326,7 +320,7 @@ To merge cells in HTML, use the colspan and rowspan attribute. The rowspan attri
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Text Wrapping"></div>
 
 ### HTML Text Wrapping :
 The word-wrap property allows long words to be able to be broken and wrap onto the next line.
@@ -338,7 +332,7 @@ The word-wrap property allows long words to be able to be broken and wrap onto t
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Table Background Image"></div>
 
 ### HTML Table Background Image :
 The background attribute can also be used to control the background of an HTML elmement, specifically page body and table backgrounds.  <br>
@@ -351,7 +345,7 @@ The background attribute can also be used to control the background of an HTML e
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Table Cell Alignment"></div>
  
 ### HTML Table Cell Alignment :
 The <td> tag defines a standard data cell in an HTML table. An HTML table has two kinds of cells:  <br>
@@ -365,7 +359,7 @@ The <td> tag defines a standard data cell in an HTML table. An HTML table has tw
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Forms"></div>
  
 ### HTML - Introduction to Forms :
 An HTML form is a section of a document containing normal content, markup, special elements called controls (checkboxes, radio buttons, menus, etc.),   <br>
@@ -383,7 +377,7 @@ An HTML form is a section of a document containing normal content, markup, speci
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Form Tags and Attributes"></div>
  
 ### HTML  Form Tags and Attributes :
 List of All ```<form> ``` Attributes <br>
@@ -407,7 +401,7 @@ List of All ```<form> ``` Attributes <br>
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Form Elements"></div>
  
 ### HTML Form Elements :
 Tag	          Description  <br>
@@ -433,7 +427,7 @@ Tag	          Description  <br>
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Input Types"></div>
  
 ### HTML Input Types :
 Here are the different input types you can use in HTML:  <br>
@@ -469,7 +463,7 @@ Here are the different input types you can use in HTML:  <br>
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div id="During"></div>
+<div id="Input Restrictions"></div>
  
  ### Input Restrictions :
   Here is a list of some common input restrictions:-  <br>
