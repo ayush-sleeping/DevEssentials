@@ -1,10 +1,10 @@
-# DevEssentials
+## DevEssentials
 
   🚀 My personal collection of learning notes, cheat sheets, and resources for web development
 
 <br>
 
-## Current Tech Stack & Focus
+### Current Tech Stack & Focus
 
 <table>
 <tr>
@@ -34,7 +34,7 @@
 
 
 
-## About
+### About
 
 This repository serves as my personal knowledge base for web development technologies. It contains organized notes, cheat sheets, code examples, and best practices that I've collected throughout my learning journey.
 
@@ -42,6 +42,12 @@ This repository serves as my personal knowledge base for web development technol
 
 
 ## Table of Contents
+
+<br>
+
+<br>
+
+<br>
 
 ### Frontend Development
 
