@@ -1,13 +1,15 @@
 
-# HTML5 Learning Notes
+## HTML5 Learning Notes
 > A short and comprehensive guide to HTML5 fundamentals, structure, and best practices
+- What is html
+> HTML (HyperText Markup Language) is the standard markup language for creating web pages. It provides the basic structure for web content, which is enhanced and styled using CSS (Cascading Style Sheets) and made interactive with JavaScript. HTML are like skeletons for web pages, providing the essential structure and layout.
 
 <div id="top"></div>
 
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
 
 
-## 📋 Table of Contents
+### 📋 Table of Contents
 
 | Section | Topic | Description |
 |---------|-------|-------------|
@@ -37,6 +39,11 @@
 | 24 | [Form Elements](#html-form-elements) | Different form elements |
 | 25 | [Input Types](#html-input-types) | Various input types |
 | 26 | [Input Restrictions](#input-restrictions) | Input validation attributes |
+| 27 | [Structure beyond div](#structure-beyond-div) | Semantic HTML elements |
+| 28 | [Global Attributes](#global-attributes) | Common attributes for all HTML elements |
+| 29 | [Embedding External Content](#embedding-external-content) | Integrating multimedia and other content |
+| 30 | [Scripts](#scripts) | Adding JavaScript to HTML |
+| 31 | [Dialogs and Disclosures](#dialogs-and-disclosures) | Creating interactive dialogs and disclosures |
 
 #
 
@@ -53,6 +60,17 @@
 - It provides the basic structure for web content, which is enhanced and styled using CSS (Cascading Style Sheets) and made interactive with JavaScript.
 - HTML elements are represented by tags, which are enclosed in angle brackets.
 - Tags usually come in pairs: an opening tag and a closing tag, with the content in between.
+
+#
+
+<br>
+
+<br>
+
+<br>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
 
 ### Basic Structure of the HTML page
 
@@ -97,6 +115,40 @@ will be called upon in the <body> of our HTML documents.
    here we also call our javascript function.
 ```
 <body>
+```
+
+- Boilerplate
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Document title</title>
+
+    <!-- Make layout adapt to device width & prevent weird zoom -->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- SEO basics -->
+    <meta name="description" content="One concise sentence about this page." />
+
+    <!-- Favicons / PWA (minimal set) -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Optional PWA manifest -->
+    <link rel="manifest" href="/app.webmanifest" />
+
+    <!-- Social share (Open Graph / Twitter) – optional but pragmatic -->
+    <meta property="og:title" content="Document title" />
+    <meta property="og:description" content="One concise sentence." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/page" />
+    <meta property="og:image" content="https://example.com/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>...</body>
+</html>
+
 ```
 
 <p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
@@ -291,7 +343,40 @@ The HTML ```<img>``` tag is used to embed an image in a web page. Images are not
     Syntax -
     - ``` <img src="url" alt="alternatetext">```
 
+Responsive Images (CLS-safe, bandwidth-friendly)
+- Always set ```width``` & ```height``` on ```<img>``` to reserve space and avoid layout shift.
+- Use ```srcset```/```sizes``` for responsive images; use ```<picture>``` for art-direction (different crops/formats).
+- Lazy-load below-the-fold images with ```loading="lazy"```; consider ```decoding="async"```.
+```html
+<picture>
+  <source srcset="/hero.avif 1x, /hero@2x.avif 2x" type="image/avif" />
+  <source srcset="/hero.webp 1x, /hero@2x.webp 2x" type="image/webp" />
+  <img
+    src="/hero.jpg"
+    srcset="/hero.jpg 1x, /hero@2x.jpg 2x"
+    sizes="(min-width: 800px) 800px, 100vw"
+    width="800" height="450"
+    alt="Team working together in a sunny office"
+    loading="lazy" decoding="async"
+  />
+</picture>
+```
 
+(video/audio)
+- Include controls; if you autoplay, you must also set muted (browser policy).
+- Add captions with ```<track kind="captions" srclang="en" src="captions.vtt">```.
+- Consider ```playsinline``` on mobile; ```poster``` for a thumbnail; ```preload``` strategy.
+```html
+<video controls playsinline preload="metadata" width="640" height="360" poster="/poster.jpg">
+  <source src="/clip.webm" type="video/webm" />
+  <source src="/clip.mp4" type="video/mp4" />
+  <track kind="captions" srclang="en" src="/clip.en.vtt" label="English" default />
+  Sorry, your browser doesn’t support HTML video.
+</video>
+```
+
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
 
 #
 
@@ -365,7 +450,14 @@ To make a hyperlink in an HTML page, use the ```<a>``` and ```</a>``` tags, whic
 - The HTML anchor tag defines a hyperlink that links one page to another page. It can create hyperlink to other web page as well as files,
   location, or any URL. The ```href``` attribute is the most important attribute of the HTML a tag. and which links to destination page or URL.
 
-
+Links the Safe Way
+- Always use meaningful link text (not “click here”).
+- If you open in a new tab (```target="_blank"```), also add ```rel="noopener"``` (and usually ```noreferrer```) to prevent ```window.opener``` attacks.
+```html
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">
+  Read the docs
+</a>
+```
 
 #
 
@@ -503,6 +595,59 @@ An HTML form is a section of a document containing normal content, markup, speci
     - " Input Forms are created in HTML. " <br>
     - " Data is submitted to a PHP Script for processing. " <br>
 
+Accessible, Modern Forms (beyond just ```<input>```)
+- Always pair ```<label for="id">``` with inputs; use ```name``` for submission; use ```<fieldset>```/```<legend>``` to group related controls.
+- Native validation: ```required```, ```min```, ```max```, ```pattern```, with title to hint the pattern. Use the Constraint Validation API to trigger messages.
+- Useful attributes: ```autocomplete```, ```inputmode```, ```multiple```, ```accept```/```capture``` (file), ```step```, ```readonly```, ```disabled```.
+```html
+<form action="/signup" method="post" novalidate>
+  <fieldset>
+    <legend>Sign up</legend>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email"
+           autocomplete="email" required />
+
+    <label for="age">Age</label>
+    <input id="age" name="age" type="number" min="13" max="120" step="1" />
+
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" type="tel" inputmode="numeric"
+           autocomplete="tel" placeholder="98765 43210" />
+
+    <button type="submit">Create account</button>
+  </fieldset>
+</form>
+
+<script>
+  document.querySelector('form').addEventListener('submit', (e) => {
+    if (!e.target.checkValidity()) {
+      e.preventDefault();
+      e.target.reportValidity(); // native messages
+    }
+  });
+</script>
+```
+
+Tables That Are Actually Accessible
+- Use ```<caption>```, ```<thead>```, ```<tbody>```, ```<tfoot>```.
+- Use ```<th scope="col|row">``` for simple tables.
+- For complex headers, associate data cells with header cells using ```headers```/```id```.
+```html
+<table>
+  <caption>Quarterly revenue (₹Lakh)</caption>
+  <thead>
+    <tr>
+      <th scope="col">Quarter</th>
+      <th scope="col">Revenue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Q1</th><td>24.3</td></tr>
+    <tr><th scope="row">Q2</th><td>27.1</td></tr>
+  </tbody>
+</table>
+```
 
 <p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
 
@@ -647,5 +792,175 @@ List of All ```<form> ``` Attributes <br>
 
 <p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
 
+#
+
+<br>
+
+<br>
+
+<br>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+### Structure beyond div
+Use semantic elements to describe regions:
+- ```<header>, <nav>, <main>, <section>, <article>, <aside>, <footer>```
+- ```<figure> + <figcaption>, <time datetime>, <address>```
+- Headings (```<h1>–<h6>```) express a logical outline. It’s fine to have multiple ```<h1>```s in different sections, but most teams prefer one ```<h1>``` per page for clarity and accessibility.
+
+```html
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header> ... site branding/nav ... </header>
+<main id="main">
+  <article>
+    <h1>Article title</h1>
+    <p>...</p>
+    <figure>
+      <img src="cat.jpg" alt="Black cat sleeping on a keyboard" />
+      <figcaption>Our mascot hard at work.</figcaption>
+    </figure>
+  </article>
+  <aside>Related links</aside>
+</main>
+<footer>© 2025</footer>
+
+```
+
+
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
+
+#
+
+<br>
+
+<br>
+
+<br>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+### Global Attributes
+
+- ```lang="en"``` on ```<html>``` (screen readers, spellcheck)
+- ```dir="ltr|rtl"```, plus ```<bdi>/<bdo>``` for bidirectional text fixes
+- ```id```, ```class```, ```title```, ```hidden```, ```tabindex```, ```contenteditable```, ```spellcheck```, ```draggable```, ```translate```, ```data-*``` for custom data
+- ```inert``` (modern): make subtree unfocusable/inert during modals
+
+```html
+<p lang="hi">नमस्ते</p>
+<span dir="rtl">اردو</span>
+<button data-track="cta">Buy</button>
+<div inert>Background content disabled while dialog is open</div>
+```
+
+
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
+
+#
+
+<br>
+
+<br>
+
+<br>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+### Embedding External Content
+- (```<iframe>```)
+- Use title to describe the frame.
+- Consider ```loading="lazy"``` for below-the-fold iframes.
+- Lock down with ```sandbox``` and ```allow``` (permissions).
+- ```srcdoc``` can inline simple content.
+
+```html
+<iframe
+  title="Map of Mumbai"
+  src="https://maps.example.com/embed?id=123"
+  loading="lazy"
+  sandbox="allow-scripts allow-same-origin"
+  allow="fullscreen; geolocation">
+</iframe>
+```
+
+
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
+
+#
+
+<br>
+
+<br>
+
+<br>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+### Scripts
+```defer```, ```async```, and ES Modules
+Put scripts in ```<head>``` with ```defer``` to download in parallel and execute after parsing.
+Use ```async``` for independent scripts (order not guaranteed).
+Use ES modules: ```type="module";``` optionally provide a ```nomodule``` fallback.
+
+```html
+<!-- Ordered; runs after HTML parse -->
+<script src="/app.js" defer></script>
+
+<!-- Independent; runs ASAP when loaded -->
+<script src="/ads.js" async></script>
+
+<!-- Modern modules -->
+<script type="module" src="/app.mjs"></script>
+<script nomodule src="/legacy.bundle.js"></script>
+```
+
+
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
+
+#
+
+<br>
+
+<br>
+
+<br>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+### Dialogs and Disclosures
+- (no heavy JS needed)
+- Native modal dialogs with `<dialog>` and `.showModal()`.
+- Simple show/hide content with `<details><summary>...</summary>...</details>`.
+```html
+<details>
+  <summary>See prerequisites</summary>
+  <ul><li>HTML basics</li><li>CSS basics</li></ul>
+</details>
+
+<dialog id="hire">
+  <form method="dialog">
+    <p>Thanks for applying!</p>
+    <button>Close</button>
+  </form>
+</dialog>
+<button onclick="document.getElementById('hire').showModal()">Open modal</button>
+```
+
+
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-blueviolet?style=for-the-badge" /></a></p>
+
+#
+
+<br>
+
+<br>
+
+<br>
 
 <!-- ---------------------------------------------------------------------------------------------------------------------- -->
