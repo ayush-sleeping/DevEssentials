@@ -4,15 +4,16 @@
 
 <br>
 
-### Current Tech Stack & Focus
+### 🚀 Current Tech Stack & Focus
 
+| Category        | Technologies |
+|-----------------|--------------|
+| **Primary Language** | JavaScript |
+| **Frontend**    | HTML, CSS, JavaScript (Core, Ajax, ES6, DOM), JSON, jQuery, Bootstrap, Tailwind CSS, ReactJS, TypeScript |
+| **Backend**     | Laravel (PHP), PHP Basics, RESTful APIs |
+| **Database**    | MySQL (SQL) |
+| **Other**       | Git, Postman, AWS |
 
-- Primary Language : JavaScript
-- Frontend : <br>
-HTML, CSS, JavaScript (Core, Ajax, ES6, DOM Manipulation), JSON, jQuery, Bootstrap, Tailwind CSS, ReactJS, TypeScript
-- Backend : Laravel (PHP) Framework, Php basics, APIs (RESTful Services)
-- Database : MySQL (SQL)
-- Other : Git, Postman, AWS
 
 <br>
 
